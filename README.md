@@ -1,0 +1,1 @@
+To run it: install the bundle and make sure you have the right ruby version in case you don't use rvm. If it is in the university network it should work.
