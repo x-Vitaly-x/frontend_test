@@ -1,0 +1,56 @@
+<script id="book_wrapper_template" type="text/template">
+  <legend>Book info</legend>
+  <div id="book">
+
+  </div>
+</script>
+
+<script id="book_template" type="text/template">
+  {{ var isbn = book.attributes.isbn13 || book.attributes.isbn10 || book.attributes.issn }}
+  <img src="http://ws.gbv.de/covers/?id=${{isbn}}&format=img">
+  <hr/>
+  <p class="authors"><strong>Authors:</strong> ${{book.attributes.authors}}</p>
+
+  <p class="published"><strong>Published:</strong> ${{book.attributes.published}}</p>
+
+  <p class="publisher"><strong>Publisher:</strong> ${{book.attributes.publisher}}</p>
+
+  <p class="title"><strong>Title:</strong> ${{book.attributes.title}}</p>
+
+  <hr/>
+
+  {{ if(book.attributes.linkstoread){ }}
+  {{ if(typeof(book.attributes.linkstoread)=="string"){ }}
+  <p class="links"><strong>Links to read:</strong><br/>
+    - <a href="${{book.attributes.linkstoread}}">${{book.attributes.linkstoread}}</a><br/>
+  </p>
+  {{ } else { }}
+  <p class="links"><strong>Links to read:</strong><br/>
+    {{ $.each(book.attributes.linkstoread,function(index,value){ }}
+    - <a href="${{value}}">${{value}}</a><br/>
+    {{ }); }}
+  </p>
+  {{ } }}
+  {{ } }}
+
+  <hr/>
+  {{ if(book.attributes.copies){ }}
+      {{ if(typeof(book.attributes.copies[0])!="undefined"){ }}
+          {{ $.each(book.attributes.copies,function(index,value){ }}
+          ${{_.template($("#book_copy_template").html(), {copy:value})}}
+          {{ }); }}
+      {{ } else { }}
+          ${{_.template($("#book_copy_template").html(), {copy:book.attributes.copies})}}
+      {{ } }}
+  {{ } }}
+</script>
+
+<script id="book_copy_template" type="text/template">
+  <p class="location"><strong>Location:</strong> ${{copy.location}}</p>
+  {{ if(copy.loan_url){ }}
+  <p class="url"><strong>Loan book:</strong> <a href="${{copy.loan_url}}">link</a></p>
+  {{ } }}
+  {{ if(copy.mapongo_link){ }}
+  <p class="url"><strong>Mapongo:</strong> <a href="${{copy.mapongo_link}}">link</a></p>
+  {{ } }}
+</script>

@@ -1,0 +1,46 @@
+<script id="books_template" type="text/template">
+  <legend>Browse books</legend>
+  <div class="search_container">
+    <form class="form-search pull-left" onsubmit="event.preventDefault();">
+      <div class="input-append">
+        <input type="text" placeholder="search by title" class="input-medium search-query" value="${{Main.search}}">
+        <button type="submit" class="btn btn-info">search</button>
+      </div>
+    </form>
+  </div>
+  <table class="book_table table table-bordered table-striped">
+    <thead>
+    <tr>
+      <th>
+        publishing
+      </th>
+      <th>
+        title
+      </th>
+      <th>
+        link
+      </th>
+    </tr>
+    </thead>
+    <tbody id="books">
+
+    </tbody>
+  </table>
+  <a class="next_page btn btn-success" id="next_page" href="#">more results</a>
+</script>
+
+<script id="book_list_template" type="text/template">
+  {{ $.each(books.models, function(index, value){ }}
+  <tr class="book">
+    <td class="title">
+      ${{value.attributes.publishing}}
+    </td>
+    <td class="text">
+      ${{value.attributes.long_title}}
+    </td>
+    <td class="link">
+      <a href="/books/${{value.attributes.ppn}}" class="state_trigger"><i class="icon-chevron-right"></i></a>
+    </td>
+  </tr>
+  {{ }); }}
+</script>

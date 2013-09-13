@@ -1,0 +1,10 @@
+<soapenv:Envelope
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+xmlns:opac="http://opac.provider.elis.unipotsdam.de/">
+  <soapenv:Header/>
+  <soapenv:Body>
+     <opac:getBookByPPN>
+        <ppn><%= ppn %></ppn>
+     </opac:getBookByPPN>
+  </soapenv:Body>
+</soapenv:Envelope>

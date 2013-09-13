@@ -1,0 +1,69 @@
+/*+clearfix {*/
+.main_view .search_container:after
+{
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+	font-size: 0;
+}
+.main_view .search_container
+{
+	display: inline-block;
+}
+.main_view .search_container
+{
+	/*\*/
+	display: block;
+	/**/
+	-height: 1px;
+}
+/*+}*/
+@media (min-width: 979px)
+{
+	BODY .container .main_view
+	{
+		margin-top: 60px;
+	}
+}
+#next_page
+{
+	width: 100%;
+	padding-left: 0px;
+	padding-right: 1px;
+	border: 0px solid #000000;
+	height: 30px;
+	padding-top: 10px;
+}
+.main_view .search_container .form-search
+{
+	text-align: center;
+	width: 100%;
+}
+/*[clearfix]*/.main_view .search_container
+{
+	width: 100%;
+}
+.book_table .book_search .form-search
+{
+	width: 100%;
+	text-align: center;
+	margin: 0;
+}
+.search_container .search-query
+{
+	width: 90px;
+}
+.book_table .book .link
+{
+	text-align: center;
+}
+.book_table .book .image IMG
+{
+	width: 100%;
+}
+.book_table .book .image
+{
+	width: 30%;
+}
